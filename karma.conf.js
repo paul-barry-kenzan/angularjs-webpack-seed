@@ -9,7 +9,7 @@ const webpackConfig = require('./webpack.config.common');
 webpackConfig.plugins[2] = function() {};
 
 
-module.exports = function(config) {
+module.exports = function (config) {
   const logLevel = isProductionBuild ? config.LOG_DEBUG : config.LOG_INFO;
 
   config.set({
@@ -18,11 +18,12 @@ module.exports = function(config) {
     files: [
       { pattern: './node_modules/angular/angular.js', watched: false },
       { pattern: './node_modules/angular-mocks/angular-mocks.js', watched: false },
+      { pattern: 'src/**/*.module.js', watched: false },
       { pattern: 'src/**/*.spec.js', watched: false }
     ],
 
     preprocessors: {
-      '**/*.spec.js': ['webpack', 'coverage']
+      'src/**/*.js': ['webpack', 'coverage']
     },
 
     webpack: webpackConfig,
@@ -41,8 +42,8 @@ module.exports = function(config) {
       useBrowserName: false
     },
     coverageReporter: {
-      type : 'cobertura',
-      dir : './reports',
+      type: 'cobertura',
+      dir: './reports',
       subdir: 'coverage'
     }
   });

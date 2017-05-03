@@ -3,6 +3,8 @@ import UsersService from './users.service';
 describe('tgh.services.users', () => {
   let usersService;
 
+  beforeEach(angular.mock.module('tgh.service.users'));
+
   beforeEach(inject(function() {
     usersService = new UsersService();
   }));
@@ -25,7 +27,8 @@ describe('tgh.services.users', () => {
 
     usersService.getUsers();
 
-    expect(spy).to.have.been.called;
+    expect(spy).to.have.been.calledWith('Test sinon');
+    expect(spy).to.have.been.calledOnce;
   });
 
   it('should test that first call to getUsers returns expected default users', () => {
