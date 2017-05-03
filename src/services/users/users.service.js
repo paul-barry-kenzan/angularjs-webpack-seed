@@ -14,6 +14,7 @@ export default class UsersService {
   }
 
   getUsers() {
+    console.log('Test sinon'); // eslint-disable-line
     return this.users;
   }
 

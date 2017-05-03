@@ -20,6 +20,14 @@ describe('tgh.services.users', () => {
     expect(usersService.deleteUser).toBeDefined();
   });
 
+  it.only('should spy', function () {
+    var spy = sinon.spy(console, 'log');
+
+    usersService.getUsers();
+
+    expect(spy).to.have.been.called;
+  });
+
   it('should test that first call to getUsers returns expected default users', () => {
     let users = usersService.getUsers();
 

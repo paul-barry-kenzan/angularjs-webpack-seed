@@ -14,7 +14,7 @@ module.exports = function(config) {
 
   config.set({
     basePath: './',
-    frameworks: ['jasmine'],
+    frameworks: ['mocha', 'chai', 'sinon-chai'],
     files: [
       { pattern: './node_modules/angular/angular.js', watched: false },
       { pattern: './node_modules/angular-mocks/angular-mocks.js', watched: false },
